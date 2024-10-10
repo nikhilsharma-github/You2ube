@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BsSearch } from "react-icons/bs";
 import { FaRegUserCircle } from "react-icons/fa";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
+import { cacheResults } from "../utils/searchSlice";
 
 const Head = () => {
     const [searchQuery, setSearchQuery] = useState("");
@@ -11,6 +12,7 @@ const Head = () => {
     const [showSearchDropdown, setShowSearchDropdown] = useState(false);
 
     const dispatch = useDispatch();
+    const searchCache = useSelector((store) => store.search);
     const toggleMenuHandler = () => {
         dispatch(toggleMenu());
     };
@@ -18,19 +20,28 @@ const Head = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             getSearchSuggestions();
-        }, 200);
+        }, 2000);
         return () => {
             clearInterval(timer);
         };
     }, [searchQuery]);
 
     const getSearchSuggestions = async () => {
-        const response = await fetch(
-            "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=" +
-                searchQuery
-        );
-        const data = await response.json();
-        setSearchSuggestions(data[1]);
+        if (searchCache[searchQuery]) {
+            setSearchSuggestions(searchCache[searchQuery]);
+        } else {
+            const response = await fetch(
+                "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=" +
+                    searchQuery
+            );
+            const data = await response.json();
+            setSearchSuggestions(data[1]);
+            dispatch(
+                cacheResults({
+                    [searchQuery]: data[1],
+                })
+            );
+        }
     };
     return (
         <div className="grid grid-flow-col p-2 shadow-lg">
