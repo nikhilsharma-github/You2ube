@@ -13,9 +13,16 @@ const ButtonList = () => {
         "Popular",
         "Comedy",
         "Horror",
+        "Romantic",
+        "Cricket",
+        "Hollywood",
+        "Nature",
+        "News",
+        "Live",
+        "Recap"
     ];
     return (
-        <div className="flex">
+        <div className="flex flex-wrap justify-center mx-auto text-white">
             {buttonsList.map((category, index) => {
                 return <Button key={index} name={category}></Button>;
             })}

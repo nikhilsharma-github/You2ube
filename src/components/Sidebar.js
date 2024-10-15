@@ -1,34 +1,63 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { MdHomeFilled } from "react-icons/md";
+import { SiYoutubeshorts } from "react-icons/si";
+import { MdSubscriptions } from "react-icons/md";
+import { BsFillCollectionPlayFill } from "react-icons/bs";
+import { FaHistory } from "react-icons/fa";
+import { RiPlayList2Fill } from "react-icons/ri";
+import { BiSolidLike } from "react-icons/bi";
+import { MdWatchLater } from "react-icons/md";
+import { RiVideoDownloadFill } from "react-icons/ri";
 
 const Sidebar = () => {
     const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
     if (!isMenuOpen) return null;
 
     return (
-        <div className="p-3">
-            <h1 className="font-bold w-48">Main</h1>
-            <ul>
+        <div className="fixed h-screen  p-3 bg-slate-950 text-white">
+            <ul className="my-2 space-y-2  ">
                 <Link to="/">
-                    <li>Home</li>
+                    <li className="flex items-center">
+                        <MdHomeFilled></MdHomeFilled>
+                        <span className="p-1">Home</span>
+                    </li>
                 </Link>
-                <li>Shorts</li>
-                <li>Videos</li>
-                <li>Live</li>
+                <li className="flex items-center">
+                    <SiYoutubeshorts></SiYoutubeshorts>
+                    <span className="p-1">Shorts</span>
+                </li>
+                <li className="flex items-center">
+                    <MdSubscriptions></MdSubscriptions>
+                    <span className="p-1">Subscriptions</span>
+                </li>
             </ul>
-            <h1 className="font-bold w-48">Subscriptions</h1>
-            <ul>
-                <li>Music</li>
-                <li>Sports</li>
-                <li>Gaming</li>
-                <li>Movies</li>
-            </ul>
-            <h1 className="font-bold w-48">Favourites</h1>
-            <ul>
-                <li>Liked Videos</li>
-                <li>Watch Later</li>
-                <li>My Playlist</li>
+            <ul className="my-2 space-y-2 ">
+                <li className="flex items-center">
+                    <BsFillCollectionPlayFill></BsFillCollectionPlayFill>
+                    <span className="p-1">Channel</span>
+                </li>
+                <li className="flex items-center">
+                    <FaHistory></FaHistory>
+                    <span className="p-1">History</span>
+                </li>
+                <li className="flex items-center">
+                    <RiPlayList2Fill></RiPlayList2Fill>
+                    <span className="p-1">Playlist</span>
+                </li>
+                <li className="flex items-center">
+                    <BiSolidLike></BiSolidLike>
+                    <span className="p-1">Liked</span>
+                </li>
+                <li className="flex items-center">
+                    <MdWatchLater></MdWatchLater>
+                    <span className="p-1">Watch Later</span>
+                </li>
+                <li className="flex items-center">
+                    <RiVideoDownloadFill></RiVideoDownloadFill>{" "}
+                    <span className="p-1">Downloads</span>
+                </li>
             </ul>
         </div>
     );
