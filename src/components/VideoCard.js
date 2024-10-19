@@ -5,15 +5,15 @@ const VideoCard = ({ info, promoted }) => {
     const { viewCount } = info.statistics;
 
     return (
-        <div className="w-48 h-72 sm:w-60 m-2 shadow-lg rounded-lg bg-white dark:bg-gray-800 transition-colors duration-200">
-        {promoted && <span className="fixed rounded-tl-lg p-1 font-bold rounded-br-lg z-50 text-black bg-yellow-400">Promoted</span>}
+        <div className="w-48 h-72 sm:w-60 m-2 shadow-lg  rounded-lg bg-white dark:bg-gray-800 transition-transform duration-200 hover:scale-95 hover:shadow-md hover:bg-gray-800">
+        {promoted && <span className="absolute rounded-tl-lg p-1 font-bold rounded-br-lg  text-black bg-yellow-400">Promoted</span>}
         <img
             className="rounded-t-lg w-full object-cover"
             src={thumbnails.medium.url}
             alt="thumbnailImg"
         />
         <ul className="p-4">
-            <li className="font-bold text-sm text-gray-800 dark:text-gray-100 overflow-y-scroll">
+            <li className="font-bold text-sm text-gray-800 dark:text-gray-100 overflow-y-clip">
                 {title.length > 50 ? title.substring(0, 50) + "..." : title}
             </li>
             <li className="text-xs text-gray-600 dark:text-gray-400 mt-1">{channelTitle}</li>

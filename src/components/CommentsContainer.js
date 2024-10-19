@@ -92,7 +92,7 @@ const CommentsContainer = () => {
         return commentsList.map((comment) => (
             <div>
                 <Comment data={comment}></Comment>
-                <div className="ms-4 border border-l-2 border-lime-900">
+                <div className="ms-4 border-l-2 border-cyan-400">
                     <CommentsList commentsList={comment.replies}></CommentsList>
                 </div>
             </div>
@@ -101,20 +101,24 @@ const CommentsContainer = () => {
 
     const Comment = ({ data }) => {
         return (
-            <div className="flex p-2 border rounded-lg border-green-400 bg-gray-300">
+            <div className="flex text-xs md:text-base items-start p-2  rounded-lg shadow-sm space-x-2">
                 <FaRegUserCircle
-                    className="my-auto"
+                    className="text-gray-500 dark:text-gray-400"
                     size={30}
-                ></FaRegUserCircle>
+                />
                 <div>
-                    <p>{data.username}</p>
-                    <p>{data.comment}</p>
+                    <p className="font-bold text-gray-800 dark:text-gray-100">
+                        {data.username}
+                    </p>
+                    <p className="text-gray-600 dark:text-gray-300">
+                        {data.comment}
+                    </p>
                 </div>
             </div>
         );
     };
     return (
-        <div className="bg-green-400">
+        <div className="">
             <CommentsList commentsList={commentsList}></CommentsList>
         </div>
     );

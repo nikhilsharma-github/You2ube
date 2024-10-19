@@ -4,7 +4,7 @@ export function generateRandomUsername() {
 
     var rA = Math.floor(Math.random() * a.length);
     var rB = Math.floor(Math.random() * b.length);
-    var name = a[rA] + b[rB];
+    var name = a[rA] + " " + b[rB];
     return name;
 }
 
@@ -31,5 +31,3 @@ export function generateRandomSentence() {
     var index = Math.floor(Math.random() * sentences.length);
     return sentences[index];
 }
-
-

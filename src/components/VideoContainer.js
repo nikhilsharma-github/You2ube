@@ -15,7 +15,7 @@ const VideoContainer = () => {
         setVideos(data.items);
     };
     return (
-        <div className="w-screen flex flex-wrap justify-center">
+        <div className="w-full flex flex-wrap justify-center">
             {videos[10] && (
                 <Link to={"/watch?v=" + videos[10].id} key={videos[10].id}>
                     <AdVideoCard info={videos[10]}></AdVideoCard>

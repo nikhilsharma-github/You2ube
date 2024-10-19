@@ -48,24 +48,24 @@ const Head = () => {
         }
     };
     return (
-        <div className="sticky top-0 left-0 w-full grid grid-flow-col p-1 md:p-2 shadow-lg bg-gray-900">
+        <div className="sticky top-0 left-0 w-full z-10 grid grid-flow-col p-1 md:p-2 shadow-lg bg-gray-900">
             {/* Hamburger and Youtube Logo  */}
             <div className="flex flex-wrap col-span-2 my-auto w-fit space-x-2 md:col-span-1">
                 <GiHamburgerMenu
-                    className="my-auto cursor-pointer text-red-600 size-4 sm:size-6 md:size-8"
+                    className="my-auto p-0.5 xs:p-1 rounded-lg cursor-pointer text-red-600 size-4 sm:size-6 md:size-8 transition-transform duration-200 hover:scale-105 hover:shadow-md hover:bg-gray-800"
                     onClick={() => toggleMenuHandler()}
                 ></GiHamburgerMenu>
                 <Link to="/">
                     <img
-                        className="p-0 h-4 sm:h-6 md:h-8 cursor-pointer"
+                        className="p-0 h-4 sm:h-6 md:h-8 cursor-pointer transition-transform duration-200 hover:scale-105 hover:shadow-md"
                         src="img/YoutubeLogo.png"
                         alt="youtubeLogo"
                     />
                 </Link>
             </div>
             {/* SearchBar */}
-            <div className="flex col-span-8 justify-center md:col-span-6">
-                <div className="flex p-0 w-10/12 sm:w-4/5 md:w-full">
+            <div className="flex col-span-8 justify-center items-center md:col-span-6">
+                <div className="flex p-0 w-10/12 h-2/3 sm:h-4/5 md:h-10/12 sm:w-4/5 md:w-full transition-transform duration-200 hover:scale-x-105 hover:shadow-md">
                     <input
                         className="w-full px-1 text-xs md:text-lg sm:px-2 md:px-4 p-0 sm:py-1 md:py-2 border-0 rounded-l-full bg-gradient-to-b bg-slate-700 text-white"
                         type="text"
@@ -84,7 +84,7 @@ const Head = () => {
                         }}
                     />
                     <button className="px-2 sm:px-4 border-0  rounded-r-full bg-red-800 hover:bg-red-900 text-white">
-                        <BsSearch className="size-4 md:size-6"></BsSearch>
+                        <BsSearch className="size-2 sm:size-4 md:size-6"></BsSearch>
                     </button>
                     <div className="fixed shadow-lg text-xs md:text-base top-10 sm:top-14 w-1/3 md:w-4/12 lg:w-7/12 text-white bg-slate-900">
                         <ul>
@@ -103,16 +103,16 @@ const Head = () => {
             </div>
             {/* UserProfile  */}
             <div className="flex col-span-2 me-0 sm:me-2 md:me-4 space-x-1 md:space-x-3 justify-end items-center md:col-span-1">
-                <MdOutlineVideoCall className="my-auto size-6 sm:size-8 md:size-12 text-slate-500 " />
+                <MdOutlineVideoCall className="my-auto rounded-lg size-6 md:size-8 text-slate-500 transition-transform duration-200 hover:scale-105 hover:shadow-md hover:bg-gray-800" />
                 <FaRegBell
-                    className="my-auto size-4 sm:size-6 md:size-8 text-slate-500"
+                    className="my-auto size-4 md:size-6 text-slate-500 transition-transform duration-200 hover:scale-105 hover:shadow-md hover:bg-gray-800"
                     size={28}
                 />
                 <FaRegUserCircle
-                    className="my-auto size-4 sm:size-6 md:size-8 text-slate-500"
+                    className="my-auto size-4 md:size-6 text-slate-500 transition-transform duration-200 hover:scale-105 hover:shadow-md hover:bg-gray-800"
                     size={28}
                 ></FaRegUserCircle>
-                <span className="m-0 sm:ml-2 p-1 rounded-lg font-thin sm:font-bold border-2 border-red-800 bg-slate-900 text-slate-500">
+                <span className="flex items-center h-1/2 md:h-2/3 m-0 sm:ml-2 p-1 sm:p-2 text-xs md:text-sm rounded-lg font-thin md:font-bold border-0 md:border-2 border-red-800 bg-slate-900 text-slate-500 transition-transform duration-200 hover:scale-105 hover:shadow-md hover:bg-gray-800">
                     {username}
                 </span>
             </div>
