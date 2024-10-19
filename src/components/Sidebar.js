@@ -16,7 +16,7 @@ const Sidebar = () => {
     if (!isMenuOpen) return null;
 
     return (
-        <div className={`fixed h-screen  p-3 bg-slate-950 text-white ${isMenuOpen ? 'animate-slideIn' : 'animate-slideOut'}`}>
+        <div className={`fixed h-screen z-10  p-3 bg-slate-950 text-white ${isMenuOpen ? 'animate-slideIn' : 'animate-slideOut'}`}>
             <ul className="my-2 space-y-2  ">
                 <Link to="/">
                     <li className="flex items-center">

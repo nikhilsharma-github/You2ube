@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { GOOGLE_YOUTUBE_API } from "../utils/constants";
+import { GOOGLE_YOUTUBE_VIDEOS_API } from "../utils/constants";
 import VideoCard, { AdVideoCard } from "./VideoCard";
 import { Link } from "react-router-dom";
 
@@ -10,7 +10,7 @@ const VideoContainer = () => {
     }, []);
 
     const getVideos = async () => {
-        const response = await fetch(GOOGLE_YOUTUBE_API);
+        const response = await fetch(GOOGLE_YOUTUBE_VIDEOS_API);
         const data = await response.json();
         setVideos(data.items);
     };

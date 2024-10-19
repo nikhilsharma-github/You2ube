@@ -14,7 +14,7 @@ const LiveChat = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             getLiveChatMessages();
-        }, 5000);
+        }, 4000);
 
         return () => {
             clearInterval(interval);
@@ -39,18 +39,25 @@ const LiveChat = () => {
         );
     };
     return (
-        <div className="w-full flex flex-col p-2 m-1 bg-gray-800 rounded-lg shadow-lg">
-            <div className="flex flex-col-reverse overflow-y-scroll h-full p-1 border-b border-gray-300 dark:border-gray-700">
-                    {liveMessages.map((message, index) => (
-                        <ChatMessage
-                            key={index}
-                            name={message.name}
-                            comment={message.comment}
-                        ></ChatMessage>
-                    ))}
+        <div className="w-full align-baseline max-h-[500px] flex flex-col p-2 m-1 bg-gray-800 rounded-lg shadow-lg">
+            <div>
+                <h1 className="text-white font-bold border-b-2">Live Chat</h1>
+            </div>
+            <div className="flex align-top flex-col-reverse overflow-y-scroll p-1 border-b border-gray-300 dark:border-gray-700">
+                {liveMessages.map((message, index) => (
+                    <ChatMessage
+                        key={index}
+                        name={message.name}
+                        comment={message.comment}
+                    ></ChatMessage>
+                ))}
             </div>
             <div className="w-full flex mt-2">
-                <form className="w-full flex" action="submit" onSubmit={(e) => e.preventDefault()}>
+                <form
+                    className="w-full flex"
+                    action="submit"
+                    onSubmit={(e) => e.preventDefault()}
+                >
                     <input
                         className="flex w-10/12 lg:w-3/4 text-sm p-1 border border-gray-700 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-900 dark:text-gray-100"
                         type="text"

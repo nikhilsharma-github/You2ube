@@ -103,16 +103,19 @@ const Head = () => {
             </div>
             {/* UserProfile  */}
             <div className="flex col-span-2 me-0 sm:me-2 md:me-4 space-x-1 md:space-x-3 justify-end items-center md:col-span-1">
-                <MdOutlineVideoCall className="my-auto rounded-lg size-6 md:size-8 text-slate-500 transition-transform duration-200 hover:scale-105 hover:shadow-md hover:bg-gray-800" />
-                <FaRegBell
-                    className="my-auto size-4 md:size-6 text-slate-500 transition-transform duration-200 hover:scale-105 hover:shadow-md hover:bg-gray-800"
-                    size={28}
-                />
-                <FaRegUserCircle
-                    className="my-auto size-4 md:size-6 text-slate-500 transition-transform duration-200 hover:scale-105 hover:shadow-md hover:bg-gray-800"
-                    size={28}
-                ></FaRegUserCircle>
-                <span className="flex items-center h-1/2 md:h-2/3 m-0 sm:ml-2 p-1 sm:p-2 text-xs md:text-sm rounded-lg font-thin md:font-bold border-0 md:border-2 border-red-800 bg-slate-900 text-slate-500 transition-transform duration-200 hover:scale-105 hover:shadow-md hover:bg-gray-800">
+                <button className="my-auto rounded-lg text-slate-500 transition-transform duration-200 hover:scale-105 hover:shadow-md hover:bg-gray-800">
+                    <MdOutlineVideoCall className="size-6 md:size-8" />
+                </button>
+                <button className="my-auto rounded-lg  text-slate-500 transition-transform duration-200 hover:scale-105 hover:shadow-md hover:bg-gray-800">
+                    <FaRegBell className="size-4 md:size-6" />
+                </button>
+                <button
+                    className="my-auto rounded-lg text-slate-500 transition-transform duration-200 hover:scale-105 hover:shadow-md hover:bg-gray-800
+                "
+                >
+                    <FaRegUserCircle className="size-4 md:size-6"></FaRegUserCircle>
+                </button>
+                <span className="flex items-center h-1/2 md:h-2/3 m-0 sm:ml-2 p-1 sm:p-2 text-xs md:text-sm rounded-lg font-thin md:font-bold border-0 md:border-2 border-red-800 bg-slate-900 text-slate-500 transition-transform duration-200 hover:scale-105 hover:shadow-md hover:bg-gray-800 cursor-pointer">
                     {username}
                 </span>
             </div>
