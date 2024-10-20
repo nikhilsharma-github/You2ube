@@ -6,7 +6,7 @@ const MainContainer = () => {
   return (
     <div className='w-full bg-slate-950 '>
       <ButtonList></ButtonList>
-      <VideoContainer></VideoContainer>
+      <VideoContainer pageType="homepage"></VideoContainer>
     </div>
   )
 }

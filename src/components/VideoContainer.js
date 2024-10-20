@@ -3,14 +3,16 @@ import { GOOGLE_YOUTUBE_VIDEOS_API } from "../utils/constants";
 import VideoCard, { AdVideoCard } from "./VideoCard";
 import { Link } from "react-router-dom";
 
-const VideoContainer = () => {
+const VideoContainer = ({ pageType }) => {
     const [videos, setVideos] = useState([]);
     useEffect(() => {
         getVideos();
     }, []);
 
     const getVideos = async () => {
-        const response = await fetch(GOOGLE_YOUTUBE_VIDEOS_API);
+        let URL = GOOGLE_YOUTUBE_VIDEOS_API + "&maxResults=";
+        URL += pageType === "homepage" ? "50" : "10";
+        const response = await fetch(URL);
         const data = await response.json();
         setVideos(data.items);
     };
@@ -18,13 +20,19 @@ const VideoContainer = () => {
         <div className="w-full flex flex-wrap justify-center">
             {videos[10] && (
                 <Link to={"/watch?v=" + videos[10].id} key={videos[10].id}>
-                    <AdVideoCard info={videos[10]}></AdVideoCard>
+                    <AdVideoCard
+                        info={videos[10]}
+                        pageType={pageType}
+                    ></AdVideoCard>
                 </Link>
             )}
             {videos.map((videos) => {
                 return (
                     <Link to={"/watch?v=" + videos.id} key={videos.id}>
-                        <VideoCard info={videos}></VideoCard>
+                        <VideoCard
+                            info={videos}
+                            pageType={pageType}
+                        ></VideoCard>
                     </Link>
                 );
             })}

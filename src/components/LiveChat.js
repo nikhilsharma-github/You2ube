@@ -39,11 +39,11 @@ const LiveChat = () => {
         );
     };
     return (
-        <div className="w-full align-baseline max-h-[500px] flex flex-col p-2 m-1 bg-gray-800 rounded-lg shadow-lg">
+        <div className="w-full align-baseline max-h-[650px] flex flex-col p-2 m-1 bg-gray-800 rounded-lg shadow-lg">
             <div>
                 <h1 className="text-white font-bold border-b-2">Live Chat</h1>
             </div>
-            <div className="flex align-top flex-col-reverse overflow-y-scroll p-1 border-b border-gray-300 dark:border-gray-700">
+            <div className="flex align-top flex-col-reverse overflow-y-scroll p-1 border-b border-gray-300 dark:border-gray-700 scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300 dark:scrollbar-thumb-gray-700 dark:scrollbar-track-gray-800">
                 {liveMessages.map((message, index) => (
                     <ChatMessage
                         key={index}

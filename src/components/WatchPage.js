@@ -13,6 +13,7 @@ import {
     GOOGLE_YOUTUBE_CHANNELINFO_API,
     GOOGLE_YOUTUBE_VIDEOINFO_API,
 } from "../utils/constants";
+import VideoContainer from "./VideoContainer";
 
 const WatchPage = () => {
     const [videoInfo, setVideoInfo] = useState(null);
@@ -21,8 +22,6 @@ const WatchPage = () => {
     const [searchParams] = useSearchParams();
     const videoID = searchParams.get("v");
     const dispatch = useDispatch();
-    console.log("CHANNEL DATA : ", channelInfo);
-    console.log("videoData DATA : ", videoInfo);
     useEffect(() => {
         getVideoInformation();
         dispatch(closeMenu());
@@ -43,7 +42,6 @@ const WatchPage = () => {
             snippet: data.items[0].snippet,
             statistics: data.items[0].statistics,
         });
-        console.log("CHANNEL DATA : ", channelInfo);
     };
 
     const handleDescriptionBoxVisibility = () => {
@@ -165,7 +163,7 @@ const WatchPage = () => {
                         {/* Header  */}
                         <div>
                             {/* Video and Channel Stats  */}
-                            <div className="flex items-center flex-wrap m-2">
+                            <div className="flex items-center flex-wrap m-2 p-1 bg-slate-900 rounded-lg">
                                 <span className="flex mx-2 text-sm md:text-base font-semibold  text-white break-all">
                                     {"Published on " +
                                         videoInfo?.publishedAt.substring(0, 10)}
@@ -178,7 +176,7 @@ const WatchPage = () => {
                                     className="ms-auto text-slate-400 transition-transform duration-200 hover:scale-105 hover:shadow-md hover:bg-slate-900"
                                     onClick={handleDescriptionBoxVisibility}
                                 >
-                                    <LuChevronDownSquare className="size-6 md:size-8"></LuChevronDownSquare>
+                                    <LuChevronDownSquare className="size-4 md:size-6"></LuChevronDownSquare>
                                 </button>
                             </div>
                         </div>
@@ -195,14 +193,27 @@ const WatchPage = () => {
                     </div>
                 </div>
                 {/* LiveChat Container  */}
-                <div className="flex w-full lg:w-1/4 max-h-[500px] ">
+                <div className="flex w-full lg:w-1/4 max-h-[650px] ">
                     <LiveChat></LiveChat>
-                </div> 
+                </div>
             </div>
-            {/* Comments Container  */}
-            <div className="flex p-4">
-                <CommentsContainer></CommentsContainer>
-            </div> 
+            {/* Comments and RecommendedVideo Container  */}
+            <div className="flex flex-wrap-reverse">
+                {/* Comments Container  */}
+                <div className="flex flex-col px-4 py-0 w-full lg:w-3/4 bg-gray-800">
+                    <h2 className="text-white text-bold text-xl sm:text-2xl py-2">
+                        Comments
+                    </h2>
+                    <CommentsContainer></CommentsContainer>
+                </div>
+                {/* Recommended Video Container  */}
+                <div className="flex flex-col px-4 py-0 w-full lg:w-1/4">
+                    <h2 className="text-white text-bold text-xl sm:text-2xl">
+                        Recommended
+                    </h2>
+                    <VideoContainer pageType="watchpage"></VideoContainer>
+                </div>
+            </div>
         </div>
     );
 };
