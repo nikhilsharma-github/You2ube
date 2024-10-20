@@ -14,6 +14,7 @@ import {
     GOOGLE_YOUTUBE_VIDEOINFO_API,
 } from "../utils/constants";
 import VideoContainer from "./VideoContainer";
+import RecommendedVideos from "./RecommendedVideos";
 
 const WatchPage = () => {
     const [videoInfo, setVideoInfo] = useState(null);
@@ -182,7 +183,7 @@ const WatchPage = () => {
                         </div>
                         {/* Body  */}
                         <div
-                            className={`flex justify-start items-center m-2 text-white text-xs sm:text-sm md:text-base ${
+                            className={`flex justify-start items-center m-2 text-white text-xs sm:text-sm md:text-base break-all ${
                                 showDescriptionBox
                                     ? "flex transition-transform duration-200"
                                     : "hidden"
@@ -206,13 +207,8 @@ const WatchPage = () => {
                     </h2>
                     <CommentsContainer></CommentsContainer>
                 </div>
-                {/* Recommended Video Container  */}
-                <div className="flex flex-col px-4 py-0 w-full lg:w-1/4">
-                    <h2 className="text-white text-bold text-xl sm:text-2xl">
-                        Recommended
-                    </h2>
-                    <VideoContainer pageType="watchpage"></VideoContainer>
-                </div>
+                {/* Recommended Video Component  */}
+                <RecommendedVideos></RecommendedVideos>
             </div>
         </div>
     );
