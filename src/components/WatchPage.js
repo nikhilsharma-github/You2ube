@@ -49,7 +49,7 @@ const WatchPage = () => {
         setShowDescriptionBox(!showDescriptionBox);
     };
     return (
-        <div className="flex w-full h-full flex-col px-4 sm:px-24 bg-slate-950">
+        <div className="flex w-full h-full flex-col px-4 pb-4 sm:px-24 bg-slate-950">
             <div className="flex flex-wrap xl:flex-nowrap w-full p-4 bg-slate-950">
                 {/* Video and Description Container  */}
                 <div className="flex flex-col w-full lg:w-3/4 rounded-lg p-1">
@@ -201,7 +201,7 @@ const WatchPage = () => {
             {/* Comments and RecommendedVideo Container  */}
             <div className="flex flex-wrap-reverse">
                 {/* Comments Container  */}
-                <div className="flex flex-col px-4 py-0 w-full lg:w-3/4 bg-gray-800">
+                <div className="flex flex-col px-4 py-0 w-full lg:w-3/4">
                     <h2 className="text-white text-bold text-xl sm:text-2xl py-2">
                         Comments
                     </h2>

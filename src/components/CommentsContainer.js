@@ -75,7 +75,7 @@ const CommentsContainer = () => {
                 <Comment data={comment} />
                 {/* REPLY BOX */}
                 {activeReplyBox === comment.id && (
-                    <div className="w-full flex mt-0">
+                    <div className="w-full flex mt-0 ms-2">
                         <form
                             className="w-full flex"
                             action="submit"
@@ -85,7 +85,7 @@ const CommentsContainer = () => {
                             }}
                         >
                             <input
-                                className="flex w-full text-sm p-1 border border-gray-700 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-900 dark:text-gray-100"
+                                className="flex w-full text-xs lg:text-sm p-1 border border-gray-700 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-900 dark:text-gray-100"
                                 type="text"
                                 name={`reply-${comment.id}`}
                                 id={`reply-${comment.id}`}
@@ -99,7 +99,7 @@ const CommentsContainer = () => {
                                 placeholder="Reply..."
                             />
                             <button
-                                className="w-2/12 lg:w-1/4 bg-blue-500 text-sm text-white p-1 rounded-r-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-blue-700 dark:hover:bg-blue-800"
+                                className="w-3/12 lg:w-2/12 bg-cyan-950 hover:bg-cyan-700 text-xs lg:text-sm text-white p-1 rounded-r-lg  focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 type="submit"
                             >
                                 Reply
@@ -119,7 +119,7 @@ const CommentsContainer = () => {
     const Comment = ({ data }) => {
         return (
             <div className="flex flex-col text-xs md:text-base items-start p-2 rounded-lg shadow-sm space-x-2">
-                <div className="flex items-center space-x-2">
+                <div className="flex flex-wrap items-center space-x-2">
                     <FaRegUserCircle className="flex size-4 md:size-6 text-gray-500 dark:text-gray-400" />
                     <p className="font-bold text-gray-800 dark:text-gray-100">
                         {data.username}
@@ -129,7 +129,7 @@ const CommentsContainer = () => {
                     </p>
                     {/* SHOW HIDE REPLY BOX USING THIS BUTTON */}
                     <button
-                        className="size-4 text-white font-thin transition-transform duration-200 hover:scale-105 hover:shadow-md hover:bg-gray-800"
+                        className="size-4 rounded-sm bg-cyan-950 text-white font-thin transition-transform duration-200 hover:scale-105 hover:shadow-md hover:bg-gray-800"
                         onClick={() => toggleReplyBox(data.id)}
                     >
                         <LuReply />
@@ -155,7 +155,7 @@ const CommentsContainer = () => {
                     }}
                 >
                     <input
-                        className="flex w-full text-sm p-1 border border-gray-700 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-900 dark:text-gray-100"
+                        className="flex w-full text-xs lg:text-sm p-1 border border-gray-700 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-900 dark:text-gray-100"
                         type="text"
                         name="comment"
                         id="comment"
@@ -164,7 +164,7 @@ const CommentsContainer = () => {
                         placeholder="Type your Comment..."
                     />
                     <button
-                        className="w-2/12 lg:w-1/4 bg-blue-500 text-sm text-white p-1 rounded-r-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-blue-700 dark:hover:bg-blue-800"
+                        className="w-3/12 lg:w-2/12 bg-blue-950 hover:bg-blue-700 text-xs lg:text-sm text-white p-1 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                         type="submit"
                     >
                         Comment

@@ -83,22 +83,24 @@ const Head = () => {
                             setShowSearchDropdown(false);
                         }}
                     />
-                    <button className="px-2 sm:px-4 border-0  rounded-r-full bg-red-800 hover:bg-red-900 text-white">
+                    <button className="px-2 sm:px-4 border-0 rounded-r-full bg-red-800 hover:bg-red-900 text-white">
                         <BsSearch className="size-2 sm:size-4 md:size-6"></BsSearch>
                     </button>
-                    <div className="fixed flex-col shadow-lg text-xs md:text-base top-8 sm:top-10 w-full text-white bg-slate-900">
-                        <ul className="flex flex-col w-full">
-                            {showSearchDropdown &&
-                                searchSuggestions.map((value, index) => (
-                                    <li
-                                        key={index}
-                                        className="p-2 hover:bg-gray-100"
-                                    >
-                                        {value}
-                                    </li>
-                                ))}
-                        </ul>
-                    </div>
+                </div>
+                <div
+                    className={`w-2/3 justify-center fixed flex-col rounded-lg shadow-lg text-xs md:text-base top-8 sm:top-12 text-white bg-slate-900`}
+                >
+                    <ul className="flex flex-col">
+                        {showSearchDropdown &&
+                            searchSuggestions.map((value, index) => (
+                                <li
+                                    key={index}
+                                    className="p-2 hover:bg-slate-800 cursor-pointer"
+                                >
+                                    {value}
+                                </li>
+                            ))}
+                    </ul>
                 </div>
             </div>
             {/* UserProfile  */}
