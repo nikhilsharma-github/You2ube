@@ -23,14 +23,16 @@ const LiveChat = () => {
     }, []);
 
     const sendLiveMessage = (e) => {
-        dispatch(
-            addMessage({
-                name: "Nickillusion",
-                comment: liveMessage,
-                date: date.format(new Date(), "DD/MMM/YYYY hh:mm:ss A"),
-            })
-        );
-        setLiveMessage("");
+        if (liveMessage.length > 0) {
+            dispatch(
+                addMessage({
+                    name: "Nikhil Sharma",
+                    comment: liveMessage,
+                    date: date.format(new Date(), "DD/MMM/YYYY hh:mm:ss A"),
+                })
+            );
+            setLiveMessage("");
+        }
     };
     const getLiveChatMessages = async () => {
         dispatch(
