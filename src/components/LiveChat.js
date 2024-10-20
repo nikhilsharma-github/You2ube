@@ -6,6 +6,7 @@ import {
     generateRandomSentence,
     generateRandomUsername,
 } from "../utils/helper";
+import date from "date-and-time";
 
 const LiveChat = () => {
     const liveMessages = useSelector((store) => store.chat.messages);
@@ -26,6 +27,7 @@ const LiveChat = () => {
             addMessage({
                 name: "Nickillusion",
                 comment: liveMessage + liveMessage.length,
+                date: date.format(new Date(), "DD/MMM/YYYY hh:mm:ss A"),
             })
         );
         setLiveMessage("");
@@ -35,6 +37,7 @@ const LiveChat = () => {
             addMessage({
                 name: generateRandomUsername(),
                 comment: generateRandomSentence(),
+                date: date.format(new Date(), "DD/MMM/YYYY hh:mm:ss A"),
             })
         );
     };
@@ -49,6 +52,7 @@ const LiveChat = () => {
                         key={index}
                         name={message.name}
                         comment={message.comment}
+                        date={message.date}
                     ></ChatMessage>
                 ))}
             </div>

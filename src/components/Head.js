@@ -86,8 +86,8 @@ const Head = () => {
                     <button className="px-2 sm:px-4 border-0  rounded-r-full bg-red-800 hover:bg-red-900 text-white">
                         <BsSearch className="size-2 sm:size-4 md:size-6"></BsSearch>
                     </button>
-                    <div className="fixed shadow-lg text-xs md:text-base top-10 sm:top-14 w-1/3 md:w-4/12 lg:w-7/12 text-white bg-slate-900">
-                        <ul>
+                    <div className="fixed flex-col shadow-lg text-xs md:text-base top-8 sm:top-10 w-full text-white bg-slate-900">
+                        <ul className="flex flex-col w-full">
                             {showSearchDropdown &&
                                 searchSuggestions.map((value, index) => (
                                     <li
