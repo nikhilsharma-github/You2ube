@@ -26,7 +26,7 @@ const LiveChat = () => {
         dispatch(
             addMessage({
                 name: "Nickillusion",
-                comment: liveMessage + liveMessage.length,
+                comment: liveMessage,
                 date: date.format(new Date(), "DD/MMM/YYYY hh:mm:ss A"),
             })
         );

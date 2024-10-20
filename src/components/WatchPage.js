@@ -59,7 +59,7 @@ const WatchPage = () => {
                         src={"https://www.youtube.com/embed/" + videoID}
                         title="title"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin"
+                        referrerPolicy="strict-origin-when-cross-origin"
                         allowFullScreen
                     ></iframe>
                     {/* Details Container  */}
